@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Source Code Pro", monospace;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.container {
+  max-width: 140rem;
+  padding: 4.8rem 2.4rem 4.8rem;
+  margin: 0 auto;
+}
+
+.new-item-section {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+h1 {
+  font-size: 6rem;
+  text-align: center;
+  margin-bottom: 2.4rem;
+  font-weight: 700;
+}
+
+p {
+  font-size: 3.2rem;
+  text-align: center;
+  margin-bottom: 1.8rem;
+  color: #099268;
+}
+
+.form {
+  display: grid;
+  justify-items: end;
+  grid-template-columns: 1fr 1fr;
+  padding: 1.2rem;
+  gap: 2rem;
+}
+
+.form label,
+.form input,
+.form select,
+.form option,
+.form option {
+  height: 40px;
+  width: 250px;
+  font-size: 2rem;
+  padding-right: 1rem;
+  border-radius: 16px;
+  font-family: inherit;
+  color: inherit;
+}
+
+.form input {
+  padding: 1rem;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#button {
+  font-size: 2rem;
+  padding: 1.2rem 2.4rem;
+  background-color: #099268;
+  border: none;
+  border-radius: 16px;
+  color: #fff;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 2rem;
+  gap: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0.4rem 1rem 0.2rem #adadadce;
+}
+
+.table-data {
+  display: flex;
+}
+
+.delete-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 0.5rem;
+}
+
+.table {
+  text-align: center;
+  font-size: 1.8rem;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 1rem;
+}
+
+.table-row {
+  text-align: left;
+  padding: 1rem;
+  border-collapse: collapse;
+}
+
+.icon-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-solid {
+  padding: 1rem;
+  border: none;
+  border-radius: 25%;
+  background-color: rgb(241, 25, 25);
+  transition: all 0.3s;
+}
+
+.fa-solid:hover {
+  background-color: rgb(189, 3, 3);
+}
+
+table tr:nth-child(even) {
+  background-color: #ebebeb;
+}
+
+.chart-container {
+  justify-self: center;
+  height: 400px;
+  width: 400px;
+}
+
+@media (max-width: 54em) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 48em) {
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-container {
+    justify-self: auto;
+    height: 300px;
+    max-width: 300px;
+  }
+}
