@@ -19,7 +19,6 @@ addBtn.addEventListener("click", function () {
   if (nameInput.value && dateInput.value && amountInput.value) {
     addExpenseToCategory(categoryInput.value, amountInput.value);
     pushExpense();
-    console.log(expenses);
     addExpense();
   }
   return;
@@ -30,7 +29,6 @@ document.body.onkeydown = function (e) {
     if (nameInput.value && dateInput.value && amountInput.value) {
       addExpenseToCategory(categoryInput.value, amountInput.value);
       pushExpense();
-      console.log(expenses);
       addExpense();
     }
   return;
@@ -58,9 +56,9 @@ function addExpense() {
     xmarkIcon.addEventListener("click", function () {
       removeExpense(item.id);
       removeExpenseToCategory(item.category, item.amount);
+      chartToLocalStorage();
       tableRow.remove();
       xmarkIcon.remove();
-      console.log(expenses);
     });
 
     tableRow.append(
@@ -82,6 +80,25 @@ function addExpense() {
   });
 }
 
+// PUSH INPUT TO EXPENSES OBJECT
+const pushExpense = function () {
+  let expense = {
+    id: Date.now(),
+    name: nameInput.value,
+    date: dateInput.value,
+    category: categoryInput.value,
+    amount: amountInput.value,
+  };
+  return expenses.push(expense);
+};
+
+// REMOVE EXPENSE FROM ARRAY
+const removeExpense = (id) => {
+  expenses = expenses.filter((expense) => expense.id !== id);
+
+  toLocalStorage();
+};
+
 // INPUT LOCAL STORAGE
 const toLocalStorage = () => {
   localStorage.setItem("expenses", JSON.stringify(expenses));
@@ -94,6 +111,13 @@ const toLocalStorage = () => {
 
 //////////////////////////////
 // CHART
+
+const localStorageChart = JSON.parse(localStorage.getItem("chart-data"));
+let chartData =
+  localStorage.getItem("chart-data") !== null
+    ? localStorageChart
+    : [0, 0, 0, 0, 0, 0, 0];
+
 const ctx = document.getElementById("myChart").getContext("2d");
 const myChart = new Chart(ctx, {
   type: "pie",
@@ -110,7 +134,7 @@ const myChart = new Chart(ctx, {
     datasets: [
       {
         label: "Categories",
-        data: [0, 0, 0, 0, 0, 0, 0],
+        data: chartData,
         backgroundColor: [
           "rgba(255, 99, 132, 0.7)",
           "rgba(54, 162, 235, 0.7)",
@@ -146,7 +170,6 @@ const addExpenseToCategory = (category, amount) => {
   if (index !== -1) {
     myChart.data.datasets[0].data[index] += parseInt(amount);
     myChart.update();
-    console.log(myChart.data.datasets[0].data);
   }
 
   chartToLocalStorage();
@@ -160,36 +183,17 @@ const removeExpenseToCategory = (category, amount) => {
   if (index !== -1) {
     myChart.data.datasets[0].data[index] -= parseInt(amount);
     myChart.update();
-    console.log(myChart.data.datasets[0].data);
   }
+
+  chartToLocalStorage;
 };
 
-// CHART LOCAL STORAGE
+// CHART DATA LOCAL STORAGE
 const chartToLocalStorage = () => {
   localStorage.setItem(
     "chart-data",
     JSON.stringify(myChart.data.datasets[0].data)
   );
-};
-
-// PUSH INPUT TO EXPENSES OBJECT
-const pushExpense = function () {
-  let expense = {
-    id: Date.now(),
-    name: nameInput.value,
-    date: dateInput.value,
-    category: categoryInput.value,
-    amount: amountInput.value,
-  };
-  return expenses.push(expense);
-  console.log(expenses);
-};
-
-// REMOVE EXPENSE FROM ARRAY
-const removeExpense = (id) => {
-  expenses = expenses.filter((expense) => expense.id !== id);
-
-  toLocalStorage();
 };
 
 const init = () => {
