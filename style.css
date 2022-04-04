@@ -9,9 +9,11 @@ html {
 }
 
 body {
-  font-family: "Source Code Pro", monospace;
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
   line-height: 1;
+  background-color: #333;
+  color: rgb(15, 153, 26);
 }
 
 .container {
@@ -21,7 +23,7 @@ body {
 }
 
 .new-item-section {
-  margin-bottom: 1rem;
+  margin-bottom: 2.4rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,7 +35,7 @@ h1 {
   font-size: 6rem;
   text-align: center;
   margin-bottom: 2.4rem;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 p {
@@ -60,7 +62,7 @@ p {
   width: 250px;
   font-size: 2rem;
   padding-right: 1rem;
-  border-radius: 16px;
+  border-radius: 8px;
   font-family: inherit;
   color: inherit;
 }
@@ -80,7 +82,7 @@ p {
   padding: 1.2rem 2.4rem;
   background-color: #099268;
   border: none;
-  border-radius: 16px;
+  border-radius: 8px;
   color: #fff;
 }
 
@@ -89,7 +91,7 @@ p {
   grid-template-columns: 1fr 1fr;
   padding: 2rem;
   gap: 2rem;
-  border-radius: 16px;
+  border-radius: 8px;
   box-shadow: 0 0.4rem 1rem 0.2rem #adadadce;
 }
 
@@ -97,39 +99,31 @@ p {
   display: flex;
 }
 
-.delete-row {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding: 0.5rem;
-}
-
 .table {
-  text-align: center;
+  text-align: left;
   font-size: 1.8rem;
   width: 100%;
-}
-
-th,
-td {
   padding: 1rem;
 }
 
-.table-row {
-  text-align: left;
+.table-row th {
+  text-align: center;
   padding: 1rem;
+  border-bottom: #fff 1px solid;
+  padding-bottom: 1.6rem;
+}
+
+tbody {
   border-collapse: collapse;
+  padding: 1rem;
 }
 
-.icon-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.input-table-row td {
+  padding: 1rem 0.5rem;
 }
 
 .fa-solid {
-  padding: 1rem;
+  padding: 0.6rem;
   border: none;
   border-radius: 25%;
   background-color: rgb(241, 25, 25);
@@ -141,7 +135,7 @@ td {
 }
 
 table tr:nth-child(even) {
-  background-color: #ebebeb;
+  background-color: #505050;
 }
 
 .chart-container {
@@ -162,7 +156,7 @@ table tr:nth-child(even) {
   }
 
   .chart-container {
-    justify-self: auto;
+    justify-self: center;
     height: 300px;
     max-width: 300px;
   }

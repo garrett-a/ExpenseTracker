@@ -8,7 +8,6 @@ const addBtn = document.getElementById("button");
 const table = document.querySelector(".table");
 const tableContainer = document.querySelector(".table-container");
 const noExpenseRow = document.querySelector(".no-expense");
-const deleteRow = document.querySelector(".delete-row");
 const tableBody = document.querySelector("tbody");
 
 const localStorageExpenses = JSON.parse(localStorage.getItem("expenses"));
