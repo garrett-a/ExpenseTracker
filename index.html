@@ -30,7 +30,7 @@
   <body>
     <div class="container">
       <h1><i class="fa-solid fa-chart-pie"></i>Expense Tracker</h1>
-      <p>Add a new item:</p>
+      <h2>Add a new item:</h2>
       <div class="new-item-section">
         <form class="form">
           <div>
@@ -45,17 +45,17 @@
           <div>
             <label for="date">Date:</label>
             <input
-              type="date"
+              type="text"
               id="date"
               name="date"
               placeholder="mm/dd/yyyy"
-              date="{{date}}"
-              timezone="[[timezone]]"
+              onfocus="(this.type='date')"
             />
           </div>
           <div>
             <label for="categories">Category:</label>
             <select name="categories" id="categories">
+              <option value="" disabled selected>Please choose...</option>
               <option value="rent">Rent</option>
               <option value="utilities">Utilities</option>
               <option value="food">Food</option>
@@ -85,6 +85,7 @@
                   <th>Date</th>
                   <th>Category</th>
                   <th>Amount</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -95,7 +96,7 @@
             </table>
           </div>
         </div>
-        <div class="chart-container" width="200" height="200">
+        <div class="chart-container">
           <canvas id="myChart"></canvas>
         </div>
       </div>

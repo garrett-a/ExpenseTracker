@@ -44,6 +44,7 @@ function addExpense() {
     const tableDataDate = document.createElement("td");
     const tableDataCategory = document.createElement("td");
     const tableDataAmount = document.createElement("td");
+    const iconTd = document.createElement("td");
     const xmarkIcon = document.createElement("i");
     xmarkIcon.className = "fa-solid fa-xmark";
 
@@ -65,8 +66,9 @@ function addExpense() {
       tableDataDate,
       tableDataCategory,
       tableDataAmount,
-      xmarkIcon
+      iconTd
     );
+    iconTd.append(xmarkIcon);
     tableBody.append(tableRow);
 
     toLocalStorage();
@@ -106,7 +108,6 @@ const toLocalStorage = () => {
 //TODO:
 // stop th from shifting
 // add pagination
-// local storage
 
 //////////////////////////////
 // CHART
@@ -135,13 +136,13 @@ const myChart = new Chart(ctx, {
         label: "Categories",
         data: chartData,
         backgroundColor: [
-          "rgba(255, 99, 132, 0.7)",
-          "rgba(54, 162, 235, 0.7)",
-          "rgba(255, 206, 86, 0.7)",
-          "rgba(75, 192, 192, 0.7)",
-          "rgba(153, 102, 255, 0.7)",
-          "rgba(255, 159, 64, 0.7)",
-          "rgba(2, 159, 64, 0.7)",
+          "rgba(255, 99, 132, 0.9)",
+          "rgba(54, 162, 235, 0.9)",
+          "rgba(255, 206, 86, 0.9)",
+          "rgba(75, 192, 192, 0.9)",
+          "rgba(153, 102, 255, 0.9)",
+          "rgba(255, 159, 64, 0.9)",
+          "rgba(2, 159, 64, 0.9)",
         ],
         borderColor: [
           "rgba(255, 99, 132, 1)",
@@ -152,11 +153,23 @@ const myChart = new Chart(ctx, {
           "rgba(255, 159, 64, 1)",
           "rgba(2, 159, 64, 1)",
         ],
-        borderWidth: 3,
+        borderWidth: 4,
       },
     ],
   },
   options: {
+    plugins: {
+      legend: {
+        labels: {
+          color: "#eee",
+          usePointStyle: true,
+          font: {
+            size: 14,
+            family: "Open Sans",
+          },
+        },
+      },
+    },
     responsive: true,
   },
 });
