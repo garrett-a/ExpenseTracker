@@ -242,8 +242,6 @@ tbody td:last-child {
   #categories,
   #amount {
     font-size: 1.4rem;
-    color: #cfcfcf;
-    background-color: #505050;
   }
 
   #button {
@@ -254,7 +252,20 @@ tbody td:last-child {
 /* 510px */
 @media (max-width: 31.8em) {
   .container {
-    padding: 2.4rem 1.2rem;
+    padding: 2.4rem 1rem;
+  }
+
+  h1 {
+    font-size: 4.8rem;
+  }
+
+  .fa-solid.fa-chart-pie {
+    font-size: 6.4rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
   }
 
   .new-item-section {
@@ -265,15 +276,40 @@ tbody td:last-child {
     gap: 1rem;
   }
 
+  .form label,
+  .form input,
+  .form select,
+  .form option,
+  .form option {
+    height: 30px;
+    width: 150px;
+    font-size: 1.4rem;
+  }
+
+  #date,
+  #name,
+  #categories,
+  #amount {
+    font-size: 1.2rem;
+  }
+
   .button {
     align-self: flex-end;
   }
 
+  .grid-container {
+    padding: 1rem;
+  }
+
+  .table-container {
+    padding: 0.6rem;
+  }
+
   .table-row {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 
   .input-table-row {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 }

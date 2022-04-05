@@ -15,7 +15,12 @@ let expenses =
   localStorage.getItem("expenses") !== null ? localStorageExpenses : [];
 
 addBtn.addEventListener("click", function () {
-  if (nameInput.value && dateInput.value && amountInput.value) {
+  if (
+    nameInput.value &&
+    dateInput.value &&
+    amountInput.value &&
+    categoryInput.value
+  ) {
     addExpenseToCategory(categoryInput.value, amountInput.value);
     pushExpense();
     addExpense();
@@ -25,7 +30,12 @@ addBtn.addEventListener("click", function () {
 
 document.body.onkeydown = function (e) {
   if (e.keyCode == 13)
-    if (nameInput.value && dateInput.value && amountInput.value) {
+    if (
+      nameInput.value &&
+      dateInput.value &&
+      amountInput.value &&
+      categoryInput.value
+    ) {
       addExpenseToCategory(categoryInput.value, amountInput.value);
       pushExpense();
       addExpense();
